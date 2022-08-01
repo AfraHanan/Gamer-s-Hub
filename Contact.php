@@ -52,6 +52,28 @@
 							</form>
 						</div>
 						
+						<div class="col-lg-4">
+
+							<div class="padding40 box-rounded mb30" data-bgcolor="#292F45">
+								<h3>Bangladesh Office</h3>
+								<address class="s1">
+									<span><i class="id-color fa fa-map-marker fa-lg"></i>Block C, Road 5, Basundhara R/A, Dhaka - 1229, Bangladesh.</span>
+									<span><i class="id-color fa fa-phone fa-lg"></i>+18801711-225544</span>
+									<span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@gamershub.com">contact@gamershub.com</a></span>
+								</address>
+							</div>
+
+
+							<div class="padding40 bg-color text-light box-rounded">
+								<h3>Japan Office</h3>
+								<address class="s1">
+									<span><i class="fa fa-map-marker fa-lg"></i>100 Mainstreet Center, Japan</span>
+									<span><i class="fa fa-phone fa-lg"></i>+61 333 9296</span>
+									<span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:contact@gamershub.com">contact@gamershub.com</a></span>
+								</address>
+							</div>
+
+						</div>
 							
 						</div>
 					</div>
