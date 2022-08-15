@@ -64,7 +64,7 @@
                                 </ul>
 
                                 <div class="menu_side_area">
-                                <a href="#" class="btn-main">Members</a>
+                                <a href="g-register.php" class="btn-main">Members</a>
                                 <span id="menu-btn"></span>
                                 </div>
                             </div>
