@@ -3,6 +3,7 @@
 
 <?php  
 include('includes/header.php');
+include('includes/db_config.php');  
 ?>
 
 <section id="subheader" class="text-light" data-bgimage="url(images/background/subheader.jpg) top">
@@ -21,23 +22,34 @@ include('includes/header.php');
 </section>
 
 
+<?php
+$query = "SELECT * FROM game_updates ORDER BY gmu_id DESC";
+$query_run = mysqli_query($connection, $query);
+?>
 
 <section aria-label="section">
     <div class="container">
         <div class="row">
 
+        <?php
+            if(mysqli_num_rows($query_run) > 0)
+            {
+                while($row = mysqli_fetch_assoc($query_run))
+                {
+                    ?>
 
                     <div class="col-lg-4 col-md-6 mb30">
                         <div class="bloglist item">
                             <div class="post-content">
                                 <div class="post-image">
-                                    <img src='images/background/g1.jpg'>
-                                    
+                                <?php 
+                                    echo "<img src='admin/img/game_updates/".$row['gmu_featured_image']."' >";
+                                    ?>
                                 </div>
                                 <div class="post-text">
-                                    <span class="p-tagline">Testing Title</span>
-                                    <span class="p-date">Testing Date 12-12-22</span>
-                                    <h4><a href="#"><span>Testing hyperlink</span></a></h4>
+                                    <span class="p-tagline"><?php echo $row['gameName']; ?></span>
+                                    <span class="p-date"><?php echo $row['posted_at']; ?></span>
+                                    <h4><a href="#"><span><?php echo $row['title']; ?></span></a></h4>
                                     <p></p>
                                     <a class="btn-main" href="#">Read more</a>
                                 </div>
@@ -45,46 +57,22 @@ include('includes/header.php');
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb30">
-                        <div class="bloglist item">
-                            <div class="post-content">
-                                <div class="post-image">
-                                    <img src='images/background/g1.jpg'>
-                                    
-                                </div>
-                                <div class="post-text">
-                                    <span class="p-tagline">Testing Title</span>
-                                    <span class="p-date">Testing Date 12-12-22</span>
-                                    <h4><a href="#"><span>Testing hyperlink</span></a></h4>
-                                    <p></p>
-                                    <a class="btn-main" href="#">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<?php
+                }
+            }
 
-                    <div class="col-lg-4 col-md-6 mb30">
-                        <div class="bloglist item">
-                            <div class="post-content">
-                                <div class="post-image">
-                                    <img src='images/background/g1.jpg'>
-                                    
-                                </div>
-                                <div class="post-text">
-                                    <span class="p-tagline">Testing Title</span>
-                                    <span class="p-date">Testing Date 12-12-22</span>
-                                    <h4><a href="#"><span>Testing hyperlink</span></a></h4>
-                                    <p></p>
-                                    <a class="btn-main" href="#">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
+            else
+            {
+                echo "No Record Found";
+            }
+            ?>
 
 
-        </div>    
+           
+
+
+        </div>
+                
     </div>
   
 </section> 
