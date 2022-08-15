@@ -3,6 +3,7 @@
 
 <?php  
 include('includes/header.php');
+include('includes/db_config.php');
 
 ?>
 
@@ -28,6 +29,11 @@ include('includes/header.php');
     <div class="container">
         <div class="row">
 
+            <?php
+            $query = "SELECT * FROM tournaments ORDER BY trn_id DESC";
+            $query_run = mysqli_query($connection, $query);
+            ?>
+
             <div class="col-lg-12">
                 <div class="text-center">
                     <h2>Ongoing Tournaments</h2>
@@ -35,37 +41,52 @@ include('includes/header.php');
                 </div>
             </div>
 
+            <?php
+            if(mysqli_num_rows($query_run) > 0)
+            {
+                while($row = mysqli_fetch_assoc($query_run))
+                {
+                    ?>
 
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                            <div class="nft__item">
-                                <div class="author_list_pp">
-                                    <a href="">                                    
-                                        <img class="lazy" src="images/author/author-1.jpg" alt="">
-                                        <i class="fa fa-check"></i>
-                                    </a>
-                                </div>
-                                <div class="nft__item_wrap">
-                                    <a href="">
-                                        <img src="images/background/n1.jpg" >; 
-                                    </a>
-                                </div>
-                                <div class="nft__item_info">
-                                    <a href="">
-                                        <h4>Title</h4>
-                                    </a>
-                                    <div class="nft__item_price">
-                                        Player Capacity<span>12</span>
-                                    </div>
-                                    <div class="nft__item_action">
-                                        <a href="#">Enter Tournament</a>
-                                    </div>
-                                    <div class="nft__item_like">
-                                        <i class="fa fa-money"></i><span>FREE</span>
-                                    </div>                                 
-                                </div> 
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="nft__item">
+                            <span class="p-tagline"><?php echo $row['gameName']; ?></span>
+                            <div class="nft__item_wrap">
+                                <a href="">
+                                <?php 
+                            echo "<img src='admin/img/".$row['trn_featured_image']."' >";
+                            ?>
+                                </a>
                             </div>
-                    
+                            <div class="nft__item_info">
+                                <a href="">
+                                    <h4><?php echo $row['tournament_title']; ?></h4>
+                                </a>
+                                <div class="nft__item_price">
+                                    Player Capacity<span><?php echo $row['playerCapacity']; ?></span>
+                                </div>
+                                <div class="nft__item_action">
+                                    <a href="#">Enter Tournament</a>
+                                </div>
+                                <div class="nft__item_like">
+                                    <i class="fa fa-money"></i><span><?php echo $row['tournamentType']; ?></span>
+                                </div>                                 
+                            </div> 
                         </div>
+                
+                    </div>
+                    
+                    <?php
+                              }
+                          }
+
+                          else
+                          {
+                              echo "No Record Found";
+                          }
+                          ?>
+
+   
 
         </div>
     </div>
