@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect("localhost","root","","cgw_db");
+$connection = mysqli_connect("localhost","root","","gh_db");
 
 if (mysqli_connect_errno())
 {

@@ -87,7 +87,7 @@ include('includes/topbar.php');
                                         <td><?php echo $row['gameName']; ?></td>
                                         <td><?php echo $row['gameCat']; ?></td>
                                         <td><?php echo $row['gameDesc']; ?></td>
-                                        <td><?php echo $row['gameDeveloperName']; ?> Days</td>
+                                        <td><?php echo $row['gameDeveloperName']; ?> </td>
                                         <td><?php echo $row['gameRating']; ?></td>
                                         <td><?php 
                                         echo "<img style='width: 144px; border-radius: 15px;' src='img/games/".$row['g_featured_image']."' >";
