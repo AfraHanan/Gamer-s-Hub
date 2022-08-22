@@ -60,6 +60,8 @@ if(isset($_POST['submit_tournament']))
 
 }
 
+
+
 if(isset($_POST['submit_game_updates']))
 {
 
@@ -116,6 +118,96 @@ if(isset($_POST['submit_games']))
         }
 
 }
+
+
+
+if(isset($_POST['add_admin']))
+{
+    $profilePhoto = $_FILES['profilePhoto']['name'];
+    $username = $_POST['username'];
+    $fullname = $_POST['fullname'];
+    $email_id = $_POST['email_id'];
+    $password = md5($_POST['password']);
+    $cpassword = md5($_POST['cpassword']);
+    
+
+    $target = "img/admins/".basename($profilePhoto);
+    
+    if($password === $cpassword)
+    {
+        $query = "INSERT INTO admins (profilePhoto, username, fullname, email_id, password) VALUES ('$profilePhoto', '$username', '$fullname', '$email_id', '$password')";
+        $query_run = mysqli_query($connection, $query);
+
+        if($query_run)
+        {
+            move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $target);
+            $_SESSION['success'] = 'Admin Added';
+            header('location: adminslist.php');
+        }
+        else
+        {
+            $_SESSION['success'] = 'Admin is not Added';
+            header('location: adminslist.php');
+        }
+    }
+    else
+    {
+        $_SESSION['status'] = 'Password and Confirm Password does not match';
+        header('location: adminslist.php');
+    }
+
+}
+
+
+if(isset($_POST['update_admin_btn']))
+{
+    $id = $_POST['id'];
+    $profilePhoto = $_FILES['profilePhoto']['name'];
+    $username = $_POST['username'];
+    $fullname = $_POST['fullname'];
+    $email_id = $_POST['email_id'];
+    $password = md5($_POST['password']);
+
+    $query = "UPDATE admins SET username='$username', email_id='$email_id', password='$password' WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = 'Your Data is Updated';
+        header('Location: members.php');
+    }
+    else
+    {
+        $_SESSION['status'] = 'Your Data is NOT Updated';
+        header('Location: members.php');
+    }
+ 
+}
+
+
+
+if(isset($_POST['add_feedback']))
+{
+    
+    $text = $_POST['text'];
+
+        $query = "INSERT INTO feedback (text) VALUES ('$text')";
+        $query_run = mysqli_query($connection, $query);
+
+        if($query_run)
+        {
+    
+            $_SESSION['success'] = 'Admin Added';
+            header('location: feedbacks.php');
+        }
+        else
+        {
+            $_SESSION['success'] = 'Admin is not Added';
+            header('location: index.php');
+        }
+
+}
+
 
 
 
