@@ -92,4 +92,32 @@ if(isset($_POST['submit_tournament']))
 
 }
 
+if(isset($_POST['submit_game_updates']))
+{
+
+    $title = $_POST['title'];
+    $gameName = $_POST['gameName'];
+    $description = $_POST['description'];
+    $sourceLink = $_POST['sourceLink'];
+    $gmu_featured_image = $_FILES['gmu_featured_image']['name'];
+
+    $target = "../admin/img/game_updates/".basename($gmu_featured_image);
+    
+
+        $query = "INSERT INTO game_updates (title, gameName, description, sourceLink, gmu_featured_image) VALUES ('$title', '$gameName', '$description', '$sourceLink', '$gmu_featured_image')";
+        $query_run = mysqli_query($connection, $query);
+
+        if($query_run)
+        {
+            move_uploaded_file($_FILES['gmu_featured_image']['tmp_name'], $target);
+            header('location: view_game_updates.php');
+        }
+        else
+        {
+            
+            header('location: add_game_updates.php');
+        }
+
+}
+
 ?>

@@ -4,7 +4,7 @@
         <div class="sidebar-brand-icon">
           <i class="fas fa-user-tie"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Hi, Admin <sup></sup></div>
+        <div class="sidebar-brand-text mx-3">Hi, Organizer! <sup></sup></div>
       </a>
 
       <hr class="sidebar-divider my-0">
@@ -57,7 +57,6 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Access Games</h6>
-            <a class="collapse-item" href="add_games.php">Add New Game</a>
             <a class="collapse-item" href="view_games.php">View Games</a>
             
           </div>

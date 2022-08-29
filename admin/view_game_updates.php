@@ -57,7 +57,6 @@ include('includes/topbar.php');
                             <td><?php echo $row['gameName']; ?></td>
                             <td><?php echo $row['description']; ?></td>
                             <td><?php echo $row['sourceLink']; ?></td>
-                            <td><?php echo $row['gmu_featured_image']; ?> Days</td>
                             
                             <td><?php 
                             echo "<img style='width: 144px; border-radius: 15px;' src='img/game_updates/".$row['gmu_featured_image']."' >";
