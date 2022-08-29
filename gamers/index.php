@@ -24,7 +24,12 @@ include('includes/topbar.php');
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Admin</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                       
-                      <h4 class="mb-0 font-weight-bold text-gray-800" ></h4>
+                      <?php
+                        $query = "SELECT id FROM admins ORDER BY id";
+                        $query_run = mysqli_query($connection, $query);
+                        $row = mysqli_num_rows($query_run);
+                        echo '<h4 class="mb-0 font-weight-bold text-gray-800" >'.$row.'</h4>';
+                      ?>
                       
                       </div>
                     
@@ -45,7 +50,12 @@ include('includes/topbar.php');
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Gamers</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-                      <h4 class="mb-0 font-weight-bold text-gray-800" ></h4>
+                      <?php
+                        $query = "SELECT id FROM gamers ORDER BY id";
+                        $query_run = mysqli_query($connection, $query);
+                        $row = mysqli_num_rows($query_run);
+                        echo '<h4 class="mb-0 font-weight-bold text-gray-800" >'.$row.'</h4>';
+                      ?>
 
                       </div>
 
@@ -68,7 +78,12 @@ include('includes/topbar.php');
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
                           
-                          <h4 class="mb-0 font-weight-bold text-gray-800" ></h4>
+                          <?php
+                            $query = "SELECT o_id FROM organizers ORDER BY o_id";
+                            $query_run = mysqli_query($connection, $query);
+                            $row = mysqli_num_rows($query_run);
+                            echo '<h4 class="mb-0 font-weight-bold text-gray-800" >'.$row.'</h4>';
+                          ?>
   
                           </div>
 
@@ -91,7 +106,12 @@ include('includes/topbar.php');
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Games</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                       
-                      <h4 class="mb-0 font-weight-bold text-gray-800" ></h4>
+                      <?php
+                          $query = "SELECT trn_id FROM tournaments ORDER BY trn_id";
+                          $query_run = mysqli_query($connection, $query);
+                          $row = mysqli_num_rows($query_run);
+                          echo '<h4 class="mb-0 font-weight-bold text-gray-800" >'.$row.'</h4>';
+                        ?>
 
                       </div>
 
