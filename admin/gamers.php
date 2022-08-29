@@ -16,7 +16,7 @@ include('includes/topbar.php');
                             <div class="text-m font-weight-bold text-primary text-uppercase mb-1">Total Admin</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-                            <h4 class="mb-0 font-weight-bold text-gray-800" >15</h4>
+                            <h4 class="mb-0 font-weight-bold text-gray-800" ></h4>
 
                             </div>
                             

@@ -51,10 +51,12 @@ include('includes/header.php');
                                 <button type="submit" name="organizers_register" class="btn btn-primary btn-user btn-block">Register Account</button>
                                 <hr>
                                 <h1 class="h4 text-gray-900 mb-4" style="text-align:center;" >OR</h1>
-                                <button href="login.php" class="btn btn-primary btn-user btn-block">Log in</button>
+                                
                 
                             </form>
+                            
                             <hr>
+                            <a href="login.php" class="btn btn-primary btn-user btn-block">Log in</a>
 
                             <div class="text-center">
                                 <a class="small" href="">Forgot Password?</a>

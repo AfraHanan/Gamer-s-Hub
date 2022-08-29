@@ -2,6 +2,7 @@
 include('includes/header.php'); 
 include('includes/navbar.php');
 include('includes/topbar.php');   
+include('includes/db_config.php');
 ?>
 
     <div id="content-wrapper" class="d-flex flex-column">
